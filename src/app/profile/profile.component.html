@@ -1,0 +1,93 @@
+<section class="userProfile">
+  <div class="container">
+
+    <div id="sidebar-main" class="sidebar sidebar-default sidebar-separate">
+      <div class="sidebar-content">
+        <div class="row no-gutters">
+          <div class="col-md-3 pr-3">
+            <div class="sidebar-category sidebar-default">
+              <div class="sidebar-user">
+                <div class="category-content">
+                  <div class="image-upload">
+                    <div *ngIf='this.comingUser ==null; else img'>
+                      <img class="mr-1" width="300px" height="300px" src=''>
+                    </div>
+                    <ng-template #img>
+                      <img class="mr-1" width="300px" height="300px" [src]='this.comingUser.img'>
+
+                    </ng-template>
+
+                    <label for="file-input" class="file-icons">
+                      <i class="fas fa-camera"></i>
+                    </label>
+                    <input id="file-input" type="file" accept=".jpg,.jpeg" (change)="readUrl($event)" />
+                  </div>
+                  <div class="media-body">
+                    <h5 class="mt-0">Name:<span> {{this.userName}}</span></h5>
+                  </div>
+                  <div class="media-body">
+                    <h5 class="card-text"> Email: <span> {{this.userEmail}}</span></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- /Sidebar Category -->
+          </div>
+
+          <div class="col-md-9">
+            <div class="content-wapper py-5">
+
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-8">
+                  <div class="card mb-3">
+                    <div class="header-card">
+
+                      <div class="card-header">
+                        <span>Account Details</span>
+                        <i class="fas fa-pen"></i>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="media-body">
+                        <h6 class="card-title">Name: <span>{{this.userName}}</span></h6>
+                        <div class="media-body">
+
+                          <p class="card-text">Email:<span>{{this.userEmail}}</span></p>
+                        </div>
+                        <button type="button" class="btn btn-primary mt-4 px-5" (click)="onEdit()">Edit</button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-8">
+                  <div class="card mb-3">
+                    <div class="card-header">
+                      <span> Orders</span>
+                      <i class="fab fa-opencart"></i>
+                    </div>
+                    <div class="card-body" *ngFor="let item of comingUser.products">
+                      <div class="media">
+                        <img class="mr-3" src="{{item.img}}" width="100px" height="100px">
+                        <div class="media-body">
+                          <h5 class="mt-0"><span> {{item.productTitle}}</span></h5>
+                          <p><span style="color: #5cb85c;">{{item.price}}</span> EGP</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <button class ="btn btn-primary px-4 py-2" routerLink="/shoppingCart">Go To Shopping</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-offer-product></app-offer-product>

@@ -1,0 +1,24 @@
+
+<section class="background-responsive">
+<owl-carousel-o [options]="customOptions"  #owlCat class="carousel">
+  <ng-container>
+    <ng-template carouselSlide *ngFor="let img of images">
+      <div class="card">
+        <div class="card-img">
+          <img class="card-img-top image" [src]="img.img" alt="Card image cap">
+          <div class="container">
+            <div class="carousel-captionTwo__title d-flex align-items-center">
+              <i class="fas fa-play"></i>
+              <h3 class="wow fadeInLeft" data-wow-delay=".1s">NEW ARRIVALS</h3>
+            </div>
+            <div class="carousel-captionTwo__paraghaph d-flex align-items-center">
+              <i class="fas fa-play"></i>
+              <p class="wow fadeInLeft" data-wow-delay=".5s"> SALE UP TO 40% OFF</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
+</section>

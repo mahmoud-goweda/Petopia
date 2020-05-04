@@ -1,0 +1,34 @@
+<main class="blog">
+  <div class="container">
+    <div class="header-section wow fadeInRight">
+      <h3> <span> Our </span>Tips</h3>
+      <p>best collection</p>
+  </div>
+    <div class="row">
+      <div>
+        <div *ngFor="let item of posts" [id]="item.id" class="cards style-card wow fadeInUp">
+      
+          <div class="col-md-4">
+            <img class="card-img-top" src="{{ item.img }}" alt="Card image cap">
+          </div>
+          <div class="col-md-8 ">
+           
+            <div class="card-parghrph">
+              <h5 class="card-title">{{ item.title }}</h5>
+
+              <p class="lead mb-5 mt-4">{{ item.descrtionDog }}</p>
+              <div class="rate-wapper">
+                <div class="dtn-details">
+                  <button class="card-link btn btn-primary px-3 py-2" routerLink="/blog/{{item.id}}">Read More</button>
+                </div>
+               
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

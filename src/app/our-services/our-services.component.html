@@ -1,0 +1,82 @@
+<section class="our-services ">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <img src="../../assets/img/dog-shampoo.jpg" class="img-fluid rounded " alt="Services image">
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <h5 class="card-header">
+            Choose Your Services
+          </h5>
+          <div class="card-body">
+
+            <form [formGroup]="servicesForm" (ngSubmit)="onSubmit(servicesForm)">
+
+              <div class="form-group d-flex">
+
+                <div class="mb-2">
+                  <div class="wrapper mb-2" *ngFor="let item of data">
+                    <input class="check" type="checkbox" id="{{item.name}}" [value]="item.name" [name]="item.price"
+                      (change)="onChange($event)">
+                    <label for="{{item.name}}">{{ item.name }}</label>
+                  </div>
+                </div>
+
+              
+                  <h4 class="ml-5 mt-4" *ngIf="!servicesForm.get('checkServeices').hasError('required')">
+                    <i class="far fa-check-circle servicesIcon"></i>
+                  </h4>
+              
+
+              </div>
+
+              <div class="form-group d-flex ">
+                <div class="w-25">
+                  <label>Cat</label>
+                  <input type="number" class="form-control" min="0" formControlName="cat" name="cat"
+                    (change)="onChangevalue()">
+                </div>
+                <h4 class="ml-4 icon" *ngIf="servicesForm.get('cat').value > 0">
+                  <i class="far fa-check-circle servicesIcon"></i>
+                </h4>
+              </div>
+
+              <div class="form-group d-flex ">
+                <div class="w-25">
+                  <label>Dog</label>
+                  <input type="number" class="form-control" min="0" formControlName="dog"
+                    (change)="onChangevalue()">
+                </div>
+                <h4 class="ml-4 icon" *ngIf="servicesForm.get('dog').value > 0">
+                  <i class="far fa-check-circle servicesIcon"></i>
+                </h4>
+              </div>
+
+              <div class="form-group d-flex ">
+                <div class="w-50">
+                  <label>Choose Your Date</label>
+                  <input formControlName="date" type="text" placeholder="Choose Your Date" class="form-control"
+                  bsDatepicker [bsConfig]="{ adaptivePosition: true }" [minDate]="minDate">
+                </div>
+                <h4 class="ml-4 icon" *ngIf="!servicesForm.get('date').hasError('required')">
+                  <i class="far fa-check-circle servicesIcon"></i>
+                </h4>
+              </div>
+
+              <button type="submit" class="btn btn-success" [disabled]="!servicesForm.valid">Book</button>
+            </form>
+
+          </div>
+          <div class="card-footer">
+            <h5>Total Price : {{total}} EGP</h5>
+
+          </div>
+        </div>
+
+      </div><!-- End Col-6 -->
+    </div> <!-- End Row  -->
+  </div><!-- End Container -->
+</section><!-- End Our Services-->

@@ -1,0 +1,87 @@
+nav {
+  position: fixed;
+  top: 0;
+  background: transparent;
+  width: 100%;
+  z-index: 9999;
+  padding: 1rem 0;
+}
+
+.dropLink {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropLink:hover {
+  color: #d76a6e;
+
+}
+
+.navbar {
+  padding: 0;
+}
+
+.icon {
+  font-size: .8rem;
+}
+
+.navbar-nav {
+  margin-left: 3rem;
+  font-family: 'Montserrat';
+
+
+  .nav-link,
+  button {
+    color: #303030;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+
+}
+
+.btn-group .btn {
+  flex: none;
+}
+
+.active-link {
+  color: #981a1e !important;
+}
+
+.shopping-cart {
+    position: relative;
+    i{
+        color: #1f365c;
+        font-size: 1.6rem;
+    }
+    span{
+        position: absolute;
+        top: -1rem;
+        left: 1.1rem;
+        background-color: #f99191;
+        color: #fff;
+        padding: .4rem;
+    }
+}
+
+.userIcon{
+    font-size: 1.4rem;
+
+}
+button{
+    background: none;
+    border: none;
+}
+
+button:focus{
+    outline: none;
+
+}
+
+::ng-deep .autom{
+  padding-top: 10px;
+}
+// #logout{
+//   display: none ;
+// }

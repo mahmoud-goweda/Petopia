@@ -1,0 +1,99 @@
+.container {
+  padding: 0;
+}
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 15%;
+  z-index: 10;
+  // padding-top: 20px;
+  padding-bottom: 20px;
+  top: 35%;
+  color: #fff;
+  right: auto;
+  text-align: left;
+}
+
+img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-position: center;
+}
+
+.carousel-captionTwo__title {
+  color: #1f365c;
+  font-size: 20px;
+  margin-right: 11px;
+  vertical-align: 4px;
+  position: absolute;
+  top: 10px;
+}
+i {
+  margin-right: 10px;
+}
+.carousel-captionTwo__paraghaph {
+  position: absolute;
+  top: 50%;
+}
+
+.carousel-captionTwo__title {
+  top: 40%;
+}
+.carousel-captionTwo__paraghaph i {
+  color: #666666;
+  margin-right: 15px;
+}
+
+h3 {
+  color: #1f365c;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 40px;
+  border-width: 0;
+  border-color: rgb(255, 255, 255);
+  border-style: none;
+  font-weight: bold;
+}
+p {
+  color: #666666;
+  text-align: left !important;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 40px;
+  border-width: 0;
+  border-color: rgb(255, 255, 255);
+  margin: 0;
+}
+
+.card {
+  margin-top: 76px;
+}
+.slideTwo {
+  position: absolute;
+  bottom: 20px;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  top: 35%;
+  color: #fff;
+  right: 15%;
+  text-align: left;
+}
+
+@media (max-width: 991.98px) {
+  .carousel {
+    display: none;
+   
+  }
+  .background-responsive {
+ background: url('https://demo.fieldthemes.com/ps_petshop/home1/modules/fieldslideshow/images/slider-111.jpg');
+    background-size: cover;
+    height: 10rem;
+    background-position: center;
+    margin-top: 60px;
+  }
+}

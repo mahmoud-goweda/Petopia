@@ -1,0 +1,39 @@
+<section class="section-offers">
+    <div class="container">
+        <div class="header-section wow fadeInRight">
+            <h3> <span> Our </span>spical offer products</h3>
+            <p>best collection</p>
+        </div>
+
+        <div class="row">
+            <div class=" col-lg-3 col-md-6 col-sm-10 mx-auto mt-5 wow zoomIn" *ngFor="let card of ranarr">
+                <div class="card card-img hover06 mt-4">
+                    <div class="card-wrapper">
+                        <span class="offer">Offer</span>
+                        <span class="discount">20%</span>
+                        <div class="img-wrapper">
+                            <img [src]="card.img" class="card-img-top" alt="..." routerLink="/OfferProduct/{{card.id}}">
+                        </div>
+                        <div class="card-body">
+                            <div class="header-wrapper">
+                                <h5 class="card-title">{{card.productTitle | slice:0:22}}</h5>
+                            </div>
+                            <div class="price-detail">
+                                <del class="mr-3">{{card.price}} EGP</del>
+
+                                <span class="real-price text-white">{{card.price*.80| number:'1.0-0'}} EGP</span>
+                            </div>
+                        </div>
+                        <div class="cart-section">
+                            <button class="btn btn-primary p3 btn-block" (click)="onAddToCart(card)"><i
+                                    class="fas fa-shopping-cart mr-3"></i>Add To cart</button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</section>

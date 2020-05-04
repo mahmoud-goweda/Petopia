@@ -1,0 +1,34 @@
+<div class="single-blog">
+    <div class="container">
+        <div class="header-section wow fadeInRight">
+            <h3> <span> Our </span>Blog</h3>
+            <p>best collection</p>
+        </div>
+        
+        <owl-carousel-o class="w-100" [options]="customOptions" #owlCat>
+            <div class="row">
+            <ng-container *ngFor="let card of ranarr" class="col-md-4 col-sm-10 mx-auto mt-5">
+                <ng-template carouselSlide >
+                    <div class="card mr-3 wow fadeInUp">
+
+                        <div class="card-img">
+                            <img class="card-img-top image" [src]="card.img" alt="Card image cap">
+                        </div>
+                        <div class="card-body">
+                            <h5>{{card.title}}</h5>
+                            <p class="lead">{{card.smallDesc}}</p>
+                        </div>
+                            <div class="content-overlay">
+                                <div class="card-body content-details">
+                                    <button class="btn btn-primary" routerLink="/RandomBlog/{{card.id}}">Learn More</button>
+                                    
+                                </div>
+                            </div>
+                        
+                    </div>
+                </ng-template>
+            </ng-container>
+        </div>
+        </owl-carousel-o>
+    </div>
+</div>

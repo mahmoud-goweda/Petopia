@@ -1,0 +1,52 @@
+.services-section {
+    padding-top: 60px;
+    padding-bottom: 70px;
+    // background-color: #f4f2f3;
+}
+.header-section {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+h3 {
+    color: #303030;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+.header-section h3::before {
+    position: absolute;
+    content: "";
+    border-left: 4px solid #425575;
+    height: 35px;
+    left: -8px;
+}
+.header-section p::before {
+    position: absolute;
+    content: "";
+    border-left: 4px solid #b7b7b7;
+    height: 35px;
+    left: -8px;
+    top: 35px;
+}
+p {
+    color: #303030;
+    margin-left: 5px;
+}
+span {
+  color: #425575;  
+}
+
+ i {
+    width: 40px;
+    height: 40px;
+    background: #1f365c;
+    text-align: center;
+    line-height: 2.1;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+img {
+    width: 100%;
+}

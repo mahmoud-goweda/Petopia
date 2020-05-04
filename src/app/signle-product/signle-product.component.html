@@ -1,0 +1,50 @@
+<div class="container" *ngIf="postItem">
+    <div class="cards">
+        <div class="card-warpper pb-3">
+            <div class="row no-gutters">
+                <div class="col-md-5">
+                    <div class="img-wrapper MagicZoom" data-options="zoomWidth:400px; zoomHeight:400px">
+                        <img class="card-img-top" src="{{ postItem.img }}" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-md-5 pl-3">
+                    <h3 class="card-title my-2 mt-3">{{postItem.productTitle}}</h3>
+                    <div class="card-description">
+                        <div class="rating-warpper">
+                            <div class="rating-product mr-2">
+                                <rating [max]="5" [(ngModel)]="y" [customTemplate]="tt"></rating>
+
+                                <ng-template #tt let-i="index" let-v="value">
+                                    <button class="btn btn-{{i < v ? 'warning' : 'default'}}">
+                                        {{i < v ? '&#9733;' : '&#9734;'}}
+                                    </button>
+                                </ng-template>
+                            </div>
+                            <p>(5 customer review)</p>
+                        </div>
+                        <div class="Avilable">
+                            <i class="fas fa-check mr-2"></i>
+                            <h6>Availability : <span> 54 in stock</span></h6>
+                        </div>
+                    </div>
+
+                    <div class="card-bodys">
+                        <p class="lead">{{postItem.descrtion}}</p>
+
+                        <h2 class="mr-4">{{postItem.price}} EGP</h2>
+                        <div class="conut-quantity">
+                            <button class="btns" (click)="onDecrease(postItem)"><i class="fas fa-minus"></i></button>
+                            <span class="qty">{{quantity}}</span>
+                            <button class="btns" (click)="onIncrease(postItem)"><i class="fas fa-plus"></i></button>
+                        </div>
+
+                        <button type="button" (click)="onAddToCart(postItem)" class="btn btn-primary mt-3 px-4">
+                            <i class="fas fa-cart-plus mr-2"></i>Add
+                            To cart</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

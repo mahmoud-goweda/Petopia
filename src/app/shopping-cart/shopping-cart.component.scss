@@ -1,0 +1,85 @@
+*{
+    font-family: "Montserrat";
+}
+
+.alert{
+    margin-bottom: 5.8rem;
+}
+
+.shopping-cart{
+    padding-top: 10rem;
+}
+
+h6{
+    display: inline-block;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul li {
+    font-size: .9rem;
+    font-weight: 500;
+}
+ul li span{
+    font-weight: 400;
+}
+
+table td{
+    padding: 2rem 0 ;
+}
+
+.price{
+    font-weight: 500;
+}
+
+.qty{
+    border: 1px solid #ddd;
+    padding: 0.25rem .7rem;
+}
+.btns{
+    border: 1px solid #ddd;
+    padding: 0.1rem 0.5rem;
+    
+}
+
+.card{
+    background-color: #F1ECF2;
+    border-radius: 0;
+
+    button{
+        background-color: #676270;
+        color: #fff;
+    }
+
+    h5{
+        border-bottom: 1px solid #333;
+        padding-bottom: .7rem;
+        text-transform: uppercase;
+        font-size: 1rem;
+    }
+    ul{
+        li{
+            padding-bottom: .6rem;
+        }
+    }
+}
+
+@media (max-width: 540px){
+    h5{
+        font-size: .8rem;
+        padding-bottom: .7rem;
+    }
+    .price{
+        font-size: .8rem;
+        font-weight: 500;
+    }
+    ul li{
+        padding-bottom: .5rem;
+    }
+}
+
+ 

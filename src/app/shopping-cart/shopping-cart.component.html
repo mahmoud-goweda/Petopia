@@ -1,0 +1,130 @@
+
+<section class="shopping-cart mb-5">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-9">
+
+        <table class="table mb-4" *ngIf="productFromLocal.length > 0 ">
+          <thead>
+            <tr>
+              <th scope="col">Product Details</th>
+              <th scope="col">Price</th>
+              <th scope="col" class="text-center">Quantity</th>
+              <th scope="col" class="text-center">Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productFromLocal">
+              <td class="w-50 ">
+
+                <div class="media">
+                  <img [src]="item.img" class="img-fluid rounded  mr-3 w-25" [alt]="item.kind">
+                  <div class="media-body">
+                    <h5 class="my-2 ">{{ item.productTitle }}</h5>
+                    <ul>
+                      <li class="pb-1">Kind: <span>{{ item.kind }}</span> </li>
+                      <li class="pb-2">Store: <span>{{ item.storeName }}</span> </li>
+                      <li><button class="btn btn-danger btn-sm" (click)="onDelete(item.id)">Delete</button></li>
+                    </ul>
+                  </div><!-- End Media Body -->
+                </div><!-- End Media -->
+
+              </td>
+              <td class="price">
+                
+                  {{item.price}} EGP
+              
+              </td>
+              <td class="text-center ">
+                <button class="btns" (click)="onDecrease(item)">-</button>
+                <span class="qty">{{item.qty}}</span>
+                <button class="btns" (click)="onIncrease(item)">+</button>
+              </td>
+              <td class="price text-center">{{item.totalPrice}} EGP</td>
+            </tr>  
+          </tbody>
+        </table> <!-- End Product Table -->
+
+
+        <table class="table " *ngIf="services.length > 0 ">
+          <thead>
+            <tr>
+              <th scope="col">Services Details</th>
+              <th scope="col">Price</th>
+              <th scope="col" class="text-center">Quantity</th>
+              <th scope="col" class="text-center">Total Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let service of services">
+                <td class="w-50">
+                  <div class="media">
+                    <img src="../../assets/img/dog-shampoo.jpg" class="img-fluid rounded  mr-3 w-25" >
+                    <div class="media-body">
+                      <ul>
+                        <li class="pb-1" *ngFor="let serviceName of service.checkServeices">
+                            Service: <span>{{ serviceName.name }}</span> 
+                        </li>
+                        <li class="pb-1">Cat: <span>{{ service.cat }}</span> </li>
+                        <li class="pb-1">Dog: <span>{{ service.dog }}</span> </li>
+                        <li class="pb-2">Date: <span>{{ service.date | date: 'dd/MM/yyyy' }}</span> </li>
+                        <li>
+                            <button class="btn btn-danger btn-sm mt-2" (click)="onDeleteServices(service)" >Delete</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+               
+                  <td class="font-weight-bold">{{ service.totalPrice }} EGP</td>
+                  <td class="text-center font-weight-bold">
+                    {{ service.qty }}
+                  </td>
+                  <td class="text-center font-weight-bold">{{ service.totalPrice }} EGP</td>
+              </tr>
+
+          </tbody>
+        </table> <!-- End Services Table -->
+
+        <div class="alert alert-danger " role="alert" *ngIf="productFromLocal.length == 0 && services.length == 0 ">
+            <h4 class="alert-heading mb-3">No Product And Services Yet </h4>
+            <p>Please Add Product First <strong><a class="link" routerLink="/category/dog">Go To Add Product</a></strong></p>
+            <p>OR go to services and add services <strong><a class="link" routerLink="/ourServices">Go To Services</a></strong></p>
+
+
+          </div>
+
+      </div><!-- End Col 9 -->
+
+      <div class=" col-md-6 col-lg-3">
+        <div class="card" *ngIf="productFromLocal.length > 0 || services.length > 0 ">
+          <div class="card-body">
+            <button type="button" (click)="continueShopping()" class="btn btn-block mb-4">Continue Shopping</button>
+            <h5 class="card-title mb-4 ">Order Summary</h5>
+
+            <ul>
+              <li class="d-flex justify-content-between align-items-center">
+                Sub-Total:
+                <span >{{ subTotal }} EGP</span>
+              </li>
+              <li class="d-flex justify-content-between align-items-center">
+                Shipping:
+                <span>{{ shippingPrice }} EGP</span>
+
+              </li>
+              <li class="d-flex justify-content-between align-items-center font-weight-bold">
+                Total:
+                <span class=" font-weight-bold">{{ totalPrice }} EGP</span>
+              </li>
+            </ul>
+
+            <button type="button" class="btn btn-block mt-2" (click)="onCheckOut()">Checkout</button>
+
+          </div>
+        </div><!-- End Card -->
+
+      </div><!-- End col-3 -->
+    </div> <!-- End Row -->
+  </div> <!-- End Container -->
+</section>

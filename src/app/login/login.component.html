@@ -1,0 +1,72 @@
+<section class="section-login">
+    <div class="section-login__wapper">
+        <div class="container ">
+            <form [formGroup]="login" (ngSubmit)="onLoginSubmit(login)">
+                <div class="row">
+                    <div class="login-wrapper">
+                        <div class="col-md-12">
+                            <div class="background-wrapper">
+                                <div class="col-md-5">
+                                    <div class="form-design ">
+                                        <div class="header-signUp text-center">
+                                            <h2>log In</h2>
+                                        </div>
+                                        <div class="wrapper-login">
+                                            <div class="form-group col-md-12">
+                                                <label>Email address</label>
+                                                <input type="email" class="form-control input100"
+                                                    formControlName="email">
+                                                <div class="alert alert-danger mt-2" role="alert"
+                                                    *ngIf="login.controls.email.hasError('pattern') && login.controls.email.touched">
+                                                    *Your Email Must be like this: test@gamil.com
+                                                </div>
+                                                <div class="alert alert-danger mt-2" role="alert"
+                                                    *ngIf="login.controls.email.hasError('required') && login.controls.email.touched">
+                                                    *Your Email Is Required
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                <label>Password</label>
+                                                <input [type]= "hiden ? 'password' :'text'" class="form-control input100"
+                                                    formControlName="password">
+                                                    <div (click)='hidden()' class="hidePassword">
+                                                        <ng-container *ngIf='hiden;else unhide'>
+                                                            <i class="fas fa-eye"></i>
+                                                        </ng-container>
+                                                        <ng-template #unhide>
+                                                            <i class="fas fa-eye-slash"></i>
+                                                        </ng-template>
+                                                    </div>
+                                                    
+                                                   
+                                                <div class="alert alert-danger mt-2" role="alert"
+                                                    *ngIf="login.controls.password.hasError('pattern') && login.controls.password.touched">
+                                                    *pawword include lowercase a capital A number 0-9 min lenght 6
+                                                </div>
+                                                <div class="alert alert-danger mt-2" role="alert"
+                                                    *ngIf="login.controls.password.hasError('required') && login.controls.password.touched">
+                                                    *Your password Is Required
+                                                </div>
+                                                <span class="alert alert-danger" id="submitAlert"
+                                                    style='display: none;'>invalid
+                                                    email
+                                                    or
+                                                    password</span>
+                                                <button type="submit" class="btn btn-primary">Login</button>
+                                                <button type="button" (click)="onRegister()" class="btn btn-primary">Register</button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

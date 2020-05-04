@@ -1,0 +1,42 @@
+<div class="single-product">
+    <div class="container">
+        <div class="header-section wow fadeInRight">
+            <h3> <span> Our </span>Products</h3>
+            <p>best collection</p>
+        </div>
+        <div class="card-wrapper">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-10 mx-auto mt-5" *ngFor="let card of ranarr">
+                    <div class="card mb-3 mt-4 card-img wow fadeInUp">
+                        <div class="card-wrapper">
+                            
+                            <div class="img-wrapper">
+                                <img [src]="card.img" class="card-img-top" alt="..." routerLink="/randomProduct/{{card.id}}">
+                            </div>
+                            <div class="card-body">
+                                <div class="header-wapper">
+                                    <h5 class="card-title">{{card.productTitle | slice:0:20}}</h5>
+                                    <span class="storeName">{{card.storeName | slice:0:10}}</span>
+                                </div>
+                                <div class="card-body-detail ">
+                                    <span class="kind">{{card.kind}}</span>
+                                    <span class="price">{{card.price}} EGP</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-section">
+                            <button class="btn btn-primary btn-block p3" type="button" (click)="onAddToCart(card)"><i
+                                    class="fas fa-shopping-cart mr-3"></i>Add To cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+.single-blog {
+    padding-top: 50px;
+    padding-bottom: 50px;
+} 
+
+h3 {
+    color: #303030;
+    font-size: 40px;
+    margin-bottom: 0;
+}
+.header-section {
+    position: relative;
+    margin-bottom: 30px;
+}
+span {
+    color: #425575;
+}
+.header-section h3::before {
+    position: absolute;
+    content: "";
+    border-left: 4px solid #425575;
+    height: 35px;
+    left: -8px;
+}
+.header-section p::before {
+    position: absolute;
+    content: "";
+    border-left: 4px solid #b7b7b7;
+    height: 35px;
+    left: -8px;
+    top: 35px;
+}
+h5 {
+    font-size: 14px;
+    font-weight: 620;
+    margin-top: 5px;
+}
+.lead {
+    font-size: 14px;
+    font-weight: 400;
+}
+.card-img {
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+.card-img img {
+    max-width: 100%;
+    transition: all 1s;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}  
+.card-img:hover img {
+    transform: scale(1.2);
+}
+.btn-primary {
+    border-radius: 50px;
+    border-top-left-radius: 0;
+    background-color: #425575;
+    border-color: #425575;
+    padding: 10px 20px;
+} 
+.btn-primary:hover {
+    background-color: #fff;
+    color: #425575;
+}
+.card-body {
+    padding: 12px;
+    padding-left: 20px;
+}

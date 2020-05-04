@@ -1,0 +1,141 @@
+<div class="single-product">
+  <div class="container">
+    <div class="header-section">
+      <h3> <span> Our </span>Products</h3>
+      <p>best collection</p>
+    </div>
+    <div class="sideBar-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 side-bar navbar navbar-expand-lg navbar-light d-flex align-items-baseline">
+            <button class="navbar-toggler" (click)="droptoggle1($event)" type="button" data-toggle="collapse"
+              data-target="#navbarSupportedContent3" aria-controls="navbarSupportedContent3" aria-expanded="false"
+              aria-label="Toggle navigation">
+              Filter:
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="navbarSupportedContent3" class="hidden">
+              <div class="card p-0 border-primary mb-3">
+                <h5 class="card-header">Store</h5>
+                <ul class="list-group list-group-flush p-2" *ngFor='let stor of checkBoxStore'>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <input class="check" type="checkbox" name="{{stor}}" id="{{stor}}-9" value=""
+                      (change)=filterGetStore($event)>
+                    <label for="{{stor}}-9">{{stor}}</label>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div>
+              <div class="form-group d-flex pt-4 justify-content-end ">
+                <label class="mt-1 mr-2">Sort by:</label>
+                <select name="" id="" (change)='sortData($event)' class="form-control w-25 mb-3 ">
+                  <option value="0">
+                    none
+                  </option>
+                  <option value="1">
+                    A-Z
+                  </option>
+                  <option value="2">
+                    Z-A
+                  </option>
+                  <option value="3">
+                    price Low To High
+                  </option>
+                  <option value="4">
+                    price High To low
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+
+              <ng-container *ngIf="counter ===0 ; else empty" >
+                <div class="col-md-4 mb-4 col-sm-12 p-3" *ngFor='let item of returnedArray'>
+
+
+                  <div class="card">
+                    <div class="card-wrapper">
+                      <div class="img-wrapper">
+                        <img [src]="item.img" class="card-img-top" alt="..." routerLink="/randomProduct/{{item.id}}">
+                      </div>
+                      <div class="card-body">
+                        <div class="header-wapper">
+                          <h5 class="card-title">{{item.productTitle | slice:0:20}}</h5>
+                          <span class="storeName">{{item.storeName | slice:0:10}}</span>
+                        </div>
+                        <div class="card-body-detail">
+                          <span class="kind">{{item.kind}}</span>
+                          <span class="price">{{item.price}} EGP</span>
+                        </div>
+                      </div>
+                      <div class="cart-section">
+                        <button class="btn btn-primary btn-block p3" type="button" (click)="onAddToCart(item)"><i
+                            class="fas fa-shopping-cart mr-3"></i>Add To cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #empty>
+                <div class="col-md-4 mb-4 col-sm-12 p-3" *ngFor='let item of returnedFilterArray'>
+                  <div class="card">
+                    <div class="card-wrapper">
+                      <div class="img-wrapper">
+                        <img [src]="item.img" class="card-img-top" alt="..." routerLink="/randomProduct/{{item.id}}">
+                      </div>
+                      <div class="card-body">
+                        <div class="header-wapper">
+                          <h5 class="card-title">{{item.productTitle | slice:0:20}}</h5>
+                          <span class="storeName">{{item.storeName | slice:0:10}}</span>
+                        </div>
+                        <div class="card-body-detail">
+                          <span class="kind">{{item.kind}}</span>
+                          <span class="price">{{item.price}} EGP</span>
+                        </div>
+                      </div>
+                      <div class="cart-section">
+                        <button class="btn btn-primary btn-block p3" type="button" (click)="onAddToCart(item)"><i
+                            class="fas fa-shopping-cart mr-3"></i>Add To cart</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </ng-template>
+         
+            </div>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf='kindFilterData.length == 0  ;else page'>
+  <h1></h1>
+
+</ng-container  >
+<ng-template #page >
+  <ng-container *ngIf='counter == 0  ;else pag'>
+    
+        <pagination class="pagination" [totalItems]="kindFilterData.length" (pageChanged)="pageChanged($event)">
+        </pagination>
+  
+</ng-container>    
+   
+</ng-template>
+<ng-template #pag>
+  <ng-container *ngIf='counter > 0  '>
+
+     
+        <pagination class="pagination" [totalItems]="fiterCheck.length" (pageChanged)="pageChanged($event)">
+        </pagination>
+     
+</ng-container>   
+</ng-template>

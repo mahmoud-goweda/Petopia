@@ -1,0 +1,115 @@
+<section class=" total">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6" id="any">
+        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+          <h3 class="breadcrumb__text mb-4 mt-4">Contact Information</h3>
+          <div class="d-flex">
+            <div class="col-md-6 pr-3">
+              <input formControlName="fName" type="text" class="form-control" placeholder="First name">
+              <div *ngIf="myForm.get('fName').hasError('required')&&myForm.controls.fName.touched">
+                First Name is required
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input formControlName="lName" class="form-control" placeholder="Last Name">
+              <div *ngIf="myForm.get('lName').hasError('required')&&myForm.controls.lName.touched">
+                Last Name is required
+              </div>
+            </div>
+          </div>
+          <input formControlName="email" class="form-control" placeholder="Please Enter Email">
+          <div *ngIf="myForm.get('email').hasError('required')&&myForm.controls.email.touched"
+            class="alert alert-danger" role="alert">
+            Email is required
+          </div>
+          <div *ngIf="myForm.get('email').hasError('pattern')" class="alert alert-danger" role="alert">
+            the email should be ex : dsa@gmail.com
+          </div>
+
+          <input formControlName="mobile" placeholder="Your email" class="form-control"
+            placeholder="Please Enter Mobile">
+          <div *ngIf="myForm.controls.mobile.hasError('pattern')&&myForm.controls.mobile.touched"
+            class="alert alert-danger" role="alert">
+            Mobile should be 11 number start with 01
+          </div>
+          <div *ngIf="myForm.controls.mobile.hasError('required')&&myForm.controls.mobile.touched"
+            class="alert alert-danger" role="alert">
+            Mobile is required
+          </div>
+
+          <h3 class="breadcrumb__text mb-4 mt-4">Shipping Address</h3>
+
+
+          <input formControlName="city" class="form-control" placeholder="Please enter Your City">
+          <div *ngIf="myForm.get('city').hasError('required')&&myForm.controls.city.touched" class="alert alert-danger"
+            role="alert">
+            City is required
+          </div>
+          <div class="d-flex row">
+
+            <div class="col-md-8">
+              <input formControlName="address" class="form-control" placeholder="Please enter Your address">
+              <div *ngIf="myForm.get('address').hasError('required')&&myForm.controls.address.touched"
+                class="alert alert-danger" role="alert">
+                Address is required
+              </div>
+            </div>
+            <div class="col-md-4">
+              <input formControlName="postalCode" class="form-control" placeholder="Postal code">
+              <div *ngIf="myForm.get('postalCode').hasError('required')&&myForm.controls.postalCode.touched"
+                class="alert alert-danger" role="alert">
+                Postal code is required
+              </div>
+            </div>
+          </div>
+          <div class="price-wrapper">
+            <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">
+              Checkout
+            </button>
+            <h2 class="py-2"><span> total Price :</span> {{total}} EGP</h2>
+          </div>
+        </form>
+        <!-- </div> -->
+      </div>
+
+
+      <div class="ProductTotal offset-md-1 col-md-5">
+        <div class="content-item-wrapper">
+          <div class="col-md-6 pr-3" *ngFor="let item of productFromLocal">
+            <div class="content-wrapper">
+              <img src="{{ item.img }}" class="mr-3" width="100px" height="100px">
+              <div class="media content-item">
+                <div class="media-body">
+                  <h5 class="mt-0">{{ item.productTitle | slice:0:20 }}</h5>
+                  <span>{{ item.storeName }}</span>
+                  <h4>{{ item.price }} EGP</h4>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div>
+          <div class="content-item-wrapper">
+            <div *ngFor="let service of services" class="col-md-6 pr-3">
+              <div class="pb-1" *ngFor="let serviceName of service.checkServeices">
+                <div class="content-wrapper text-left">
+                  <h5>
+                    Service : <span class="totalPrice">{{ serviceName.name }}</span></h5>
+                    <h5 class="pb-1">Date : <span>{{ service.date | date: 'dd/MM/yyyy' }}</span> </h5>
+                  
+                  <h5 class="pb-1">Cat : <span>{{ service.cat }}</span> </h5>
+                  <h5 class="pb-1">Dog : <span>{{ service.dog }}</span> </h5>
+                  <h5 class="font-weight-bold">Total Price : <span class="totalPrice">
+                      {{ service.totalPrice }} EGP</span></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

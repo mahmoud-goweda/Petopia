@@ -1,0 +1,46 @@
+<section class="edit-profile">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="editProfile" (ngSubmit)="onEditProfile(editProfile)">
+          <!-- User Name input -->
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" formControlName="name" class="form-control mb-2" id="name">
+
+            <div class="alert alert-danger" role="alert" *ngIf="editProfile.controls.name.hasError('pattern') ">
+              user name must between 4 - 10 Characters
+            </div><!-- End Alert message -->
+            <div class="alert alert-danger" role="alert" *ngIf="editProfile.controls.name.hasError('required') ">
+              user name is required
+            </div><!-- End Alert message -->
+
+          </div><!-- End form group -->
+
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" formControlName="email" class="form-control mb-3" id="email">
+            <div class="alert alert-danger" role="alert" *ngIf="editProfile.controls.email.hasError('pattern') ">
+              *the email should be ex : dsa@gmail.com
+            </div><!-- End Alert message -->
+            <div class="alert alert-danger" role="alert" *ngIf="editProfile.controls.email.hasError('required') ">
+              Email is required
+            </div><!-- End Alert message -->
+          </div><!-- End form group -->
+
+
+          <div class="form-group">
+            <label for="password">New Password</label>
+            <input type="password" formControlName="password" class="form-control mb-3" id="password">
+            <div class="alert alert-danger" role="alert" *ngIf="editProfile.controls.password.hasError('pattern') ">
+              the password should contain ex :a-z,A-Z,0-9
+            </div><!-- End Alert message -->
+          </div><!-- End form group -->
+          <button type="submit" class="btn btn-success">Save Change</button>
+        </form><!-- End form -->
+      </div><!-- End col-6 -->
+
+    </div> <!-- End Row -->
+  </div><!-- End Container -->
+</section>

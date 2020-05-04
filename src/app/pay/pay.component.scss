@@ -1,0 +1,42 @@
+.payment{
+    padding: 10rem 0;
+    padding-left: 5px;
+// width: 60%;
+text-transform: capitalize;
+}
+
+.card{
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);}
+.card-header{
+    text-transform: uppercase;
+    background-color: #425575;
+    color: #fff;
+
+}
+.price{
+    color: 425575;
+}
+.expireDate{
+    display: flex;
+    
+}
+span {
+    color: #5cb85c;
+    font-weight: 550;
+}
+.expireDate {
+    justify-content: center;
+    align-items: baseline;
+}
+.btn-primary {
+    border-radius: 0 20px 20px 20px;
+    background-color: #425575;
+    border-color: #425575;
+}
+.price{
+    font-family: 'Fjalla One', ;
+
+    font-size: 30px;
+    color: red;
+}
