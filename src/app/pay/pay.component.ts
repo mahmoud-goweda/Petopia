@@ -15,7 +15,8 @@ export class PayComponent implements OnInit {
   myForm: FormGroup;
 price=800
   userData ;
-  products
+  products;
+  hoda;
   constructor(private payment:  ApiService,private fb: FormBuilder,private shopping: ShoppingCartService) {
     // this.payment.getConfig().subscribe(data=>{
     //   this.products =data

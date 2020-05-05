@@ -33,9 +33,9 @@
 
                         <h2 class="mr-4">{{postItem.price}} EGP</h2>
                         <div class="conut-quantity">
-                            <button class="btns" (click)="onDecrease(postItem)"><i class="fas fa-minus"></i></button>
+                            <button class="btns" (click)="onDecrease()"><i class="fas fa-minus"></i></button>
                             <span class="qty">{{quantity}}</span>
-                            <button class="btns" (click)="onIncrease(postItem)"><i class="fas fa-plus"></i></button>
+                            <button class="btns" (click)="onIncrease()"><i class="fas fa-plus"></i></button>
                         </div>
 
                         <button type="button" (click)="onAddToCart(postItem)" class="btn btn-primary mt-3 px-4">

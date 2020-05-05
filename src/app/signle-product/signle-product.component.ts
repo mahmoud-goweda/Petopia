@@ -16,6 +16,7 @@ export class SignleProductComponent implements OnInit {
   productFromLocal: any;
   quantity = 1;
   flag: boolean;
+  y;
 
   constructor(
     private http: ProudctsService,
